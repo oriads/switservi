@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HelpDesk IBM i - Bienvenido</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+
+        .container {
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            max-width: 800px;
+            width: 100%;
+            overflow: hidden;
+        }
+
+        .header {
+            background: linear-gradient(135deg, #1e40af 0%, #3b82f6 100%);
+            color: white;
+            padding: 40px;
+            text-align: center;
+        }
+
+        .header h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+            font-weight: 700;
+        }
+
+        .header p {
+            font-size: 1.2em;
+            opacity: 0.9;
+        }
+
+        .content {
+            padding: 40px;
+        }
+
+        .access-box {
+            background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+            color: white;
+            padding: 30px;
+            border-radius: 15px;
+            text-align: center;
+            margin-bottom: 30px;
+            box-shadow: 0 10px 30px rgba(16, 185, 129, 0.3);
+        }
+
+        .access-box h2 {
+            font-size: 1.3em;
+            margin-bottom: 15px;
+            font-weight: 500;
+        }
+
+        .access-url {
+            font-size: 2em;
+            font-weight: 700;
+            background: rgba(255, 255, 255, 0.2);
+            padding: 15px 30px;
+            border-radius: 10px;
+            display: inline-block;
+            margin: 10px 0;
+            cursor: pointer;
+            transition: transform 0.2s;
+        }
+
+        .access-url:hover {
+            transform: scale(1.05);
+        }
+
+        .access-url a {
+            color: white;
+            text-decoration: none;
+        }
+
+        .instructions {
+            background: #f8fafc;
+            padding: 30px;
+            border-radius: 15px;
+            margin-bottom: 20px;
+        }
+
+        .instructions h3 {
+            color: #1e293b;
+            font-size: 1.4em;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .steps {
+            list-style: none;
+            counter-reset: step-counter;
+        }
+
+        .steps li {
+            counter-increment: step-counter;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: flex-start;
+            gap: 15px;
+        }
+
+        .steps li::before {
+            content: counter(step-counter);
+            background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%);
+            color: white;
+            width: 35px;
+            height: 35px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            flex-shrink: 0;
+        }
+
+        .steps li div {
+            flex: 1;
+        }
+
+        .steps li strong {
+            display: block;
+            color: #1e293b;
+            font-size: 1.1em;
+            margin-bottom: 5px;
+        }
+
+        .steps li p {
+            color: #64748b;
+            line-height: 1.6;
+        }
+
+        .features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin-top: 30px;
+        }
+
+        .feature-card {
+            background: white;
+            border: 2px solid #e2e8f0;
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+            transition: all 0.3s;
+        }
+
+        .feature-card:hover {
+            border-color: #3b82f6;
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(59, 130, 246, 0.1);
+        }
+
+        .feature-icon {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+        }
+
+        .feature-card h4 {
+            color: #1e293b;
+            margin-bottom: 8px;
+        }
+
+        .feature-card p {
+            color: #64748b;
+            font-size: 0.9em;
+            line-height: 1.5;
+        }
+
+        .warning {
+            background: #fef3c7;
+            border-left: 4px solid #f59e0b;
+            padding: 20px;
+            border-radius: 10px;
+            margin-top: 20px;
+        }
+
+        .warning strong {
+            color: #92400e;
+            display: block;
+            margin-bottom: 8px;
+            font-size: 1.1em;
+        }
+
+        .warning p {
+            color: #78350f;
+            line-height: 1.6;
+        }
+
+        .copy-btn {
+            background: rgba(255, 255, 255, 0.2);
+            border: 2px solid white;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: 600;
+            margin-top: 10px;
+            transition: all 0.3s;
+        }
+
+        .copy-btn:hover {
+            background: rgba(255, 255, 255, 0.3);
+        }
+
+        .status-indicator {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: #10b981;
+            color: white;
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 0.9em;
+            margin-top: 15px;
+        }
+
+        .status-dot {
+            width: 10px;
+            height: 10px;
+            background: white;
+            border-radius: 50%;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.5; }
+        }
+
+        @media (max-width: 600px) {
+            .header h1 { font-size: 1.8em; }
+            .access-url { font-size: 1.5em; }
+            .content { padding: 20px; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🖥️ HelpDesk IBM i</h1>
+            <p>Sistema de Gestión de Cambios y Soporte</p>
+            <div class="status-indicator">
+                <div class="status-dot"></div>
+                <span>Sistema Activo</span>
+            </div>
+        </div>
+
+        <div class="content">
+            <div class="access-box">
+                <h2>👇 HAZ CLIC AQUÍ PARA ABRIR EL SISTEMA 👇</h2>
+                <div class="access-url" onclick="window.open('http://localhost:5173', '_blank')">
+                    http://localhost:5173
+                </div>
+                <br>
+                <button class="copy-btn" onclick="copyLink()">
+                    📋 Copiar Enlace
+                </button>
+            </div>
+
+            <div class="instructions">
+                <h3>
+                    <span>📖</span>
+                    Instrucciones para Acceder
+                </h3>
+                <ol class="steps">
+                    <li>
+                        <div>
+                            <strong>Abre tu Navegador de Internet</strong>
+                            <p>Puede ser Chrome, Edge, Firefox o cualquier otro navegador que uses.</p>
+                        </div>
+                    </li>
+                    <li>
+                        <div>
+                            <strong>Copia la Dirección de Arriba</strong>
+                            <p>Haz clic en el botón verde "Copiar Enlace" o selecciona la dirección y presiona Ctrl+C.</p>
+                        </div>
+                    </li>
+                    <li>
+                        <div>
+                            <strong>Pega en la Barra de Direcciones</strong>
+                            <p>En la parte superior de tu navegador, haz clic en la barra de direcciones y presiona Ctrl+V para pegar. Luego presiona Enter.</p>
+                        </div>
+                    </li>
+                    <li>
+                        <div>
+                            <strong>¡Listo! Ya Puedes Usar el Sistema</strong>
+                            <p>Se abrirá el sistema completo donde podrás gestionar cambios, subir evidencias y consultar trabajos del IBM i.</p>
+                        </div>
+                    </li>
+                </ol>
+            </div>
+
+            <div class="features">
+                <div class="feature-card">
+                    <div class="feature-icon">📊</div>
+                    <h4>Dashboard</h4>
+                    <p>Visualiza métricas y estadísticas de todos los cambios</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">📝</div>
+                    <h4>Control de Cambios</h4>
+                    <p>Crea, edita y gestiona proyectos y requerimientos</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">📎</div>
+                    <h4>Evidencias</h4>
+                    <p>Sube y administra archivos y documentos de soporte</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🖥️</div>
+                    <h4>Trabajos IBM i</h4>
+                    <p>Monitorea trabajos planificados en el AS/400</p>
+                </div>
+            </div>
+
+            <div class="warning">
+                <strong>⚠️ Importante</strong>
+                <p>
+                    Mantén la ventana del sistema abierta mientras trabajas. 
+                    Si la cierras, el sistema se detendrá. 
+                    <br><br>
+                    Para cerrar correctamente: cierra primero el navegador, 
+                    luego en la ventana del sistema presiona <strong>Ctrl+C</strong>.
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function copyLink() {
+            const url = 'http://localhost:5173';
+            navigator.clipboard.writeText(url).then(() => {
+                const btn = document.querySelector('.copy-btn');
+                btn.textContent = '✓ Copiado!';
+                setTimeout(() => {
+                    btn.innerHTML = '📋 Copiar Enlace';
+                }, 2000);
+            }).catch(() => {
+                // Fallback para navegadores antiguos
+                const textarea = document.createElement('textarea');
+                textarea.value = url;
+                document.body.appendChild(textarea);
+                textarea.select();
+                document.execCommand('copy');
+                document.body.removeChild(textarea);
+                alert('Enlace copiado: ' + url);
+            });
+        }
+
+        // Verificar si el frontend está disponible
+        setTimeout(() => {
+            fetch('http://localhost:5173', { mode: 'no-cors' })
+                .catch(() => {
+                    console.log('Frontend aún no disponible, esperando...');
+                });
+        }, 1000);
+    </script>
+</body>
+</html>

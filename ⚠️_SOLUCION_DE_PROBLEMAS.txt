@@ -1,0 +1,147 @@
+========================================================
+     ⚠️ SOLUCION DE PROBLEMAS - HELPDESK IBM i
+========================================================
+
+PROBLEMA: "localhost rechazó la conexión"
+CAUSA: El sistema no está corriendo
+
+
+========================================================
+        SOLUCION RAPIDA (PASO A PASO)
+========================================================
+
+PASO 1: Verificar si Docker está instalado
+
+1. Presiona la tecla Windows + R
+2. Escribe: cmd
+3. Presiona Enter
+4. Escribe: docker --version
+5. Presiona Enter
+
+Si dice "no se reconoce":
+→ Necesitas instalar Docker Desktop
+→ Ve a: https://www.docker.com/products/docker-desktop
+→ Descarga e instala
+→ Reinicia tu computadora
+→ Continúa al PASO 2
+
+Si muestra una versión (ej: "Docker version 24.x.x"):
+→ Docker está instalado
+→ Continúa al PASO 2
+
+
+PASO 2: Iniciar Docker Desktop
+
+1. Busca "Docker Desktop" en el menú Inicio
+2. Haz clic para abrirlo
+3. Espera a que el icono en la barra de tareas 
+   (abajo a la derecha) se ponga VERDE
+4. Esto puede tomar 1-2 minutos
+
+
+PASO 3: Iniciar el Sistema
+
+OPCIÓN A - CON DOCKER (Recomendada):
+1. Ve a la carpeta del proyecto
+2. Haz doble clic en: INICIAR_HELPDESK.bat
+3. Espera 2-3 minutos (la primera vez)
+4. El navegador se abrirá automáticamente
+
+OPCIÓN B - SIN DOCKER (Solo Frontend):
+1. Ve a la carpeta del proyecto
+2. Haz doble clic en: INICIAR_SIN_DOCKER.bat
+3. Espera 30 segundos
+4. El navegador se abrirá automáticamente
+
+
+========================================================
+        ¿SIGUE SIN FUNCIONAR?
+========================================================
+
+VERIFICA LOS PASOS SIGUIIENTES:
+
+1. ¿Docker Desktop está corriendo?
+   → Mira la barra de tareas (abajo derecha)
+   → ¿Ves el icono de Docker verde?
+   → Si no está, ábrelo desde el menú Inicio
+
+
+2. ¿Los puertos están disponibles?
+   → Otro programa puede estar usando el puerto 5173
+   → Cierra otros servidores web si los hay
+
+
+3. ¿El firewall está bloqueando?
+   → Abre "Firewall de Windows"
+   → Asegúrate de que Docker tenga permiso
+
+
+4. ¿Intentaste reiniciar?
+   → Cierra TODO
+   → Ejecuta DETENER_SISTEMA.bat
+   → Espera 10 segundos
+   → Ejecuta INICIAR_HELPDESK.bat de nuevo
+
+
+========================================================
+        VERIFICAR QUE TODO FUNCIONE
+========================================================
+
+1. Abre tu navegador (Chrome, Edge, Firefox)
+
+2. Escribe esta dirección:
+   
+   http://localhost:5173
+
+3. Presiona Enter
+
+4. ¿Qué ves?
+
+   A) Una pantalla de bienvenida con un botón verde
+      → ✅ ¡TODO FUNCIONA! Haz clic en el botón verde
+   
+   B) "localhost rechazó la conexión"
+      → ❌ El sistema no está corriendo
+      → Vuelve al PASO 1
+
+
+========================================================
+        COMANDO PARA VERIFICAR
+========================================================
+
+Si quieres ver si los servicios están corriendo:
+
+1. Presiona Windows + R
+2. Escribe: cmd
+3. Presiona Enter
+4. Escribe: docker ps
+5. Presiona Enter
+
+Deberías ver varias líneas que digan:
+- helpdesk-frontend
+- helpdesk-api-node
+- helpdesk-postgres
+
+Si no ves nada:
+→ Los servicios no están corriendo
+→ Ejecuta INICIAR_HELPDESK.bat
+
+
+========================================================
+        CONTACTAR SOPORTE
+========================================================
+
+Si después de seguir todos estos pasos sigue sin 
+funcionar:
+
+1. Toma una captura de pantalla del error
+2. Toma una captura de "docker ps"
+3. Envía ambas imágenes al departamento de sistemas
+
+
+========================================================
+
+¿Necesitas más ayuda?
+Abre: INSTRUCCIONES_PARA_EL_USUARIO.txt
+
+========================================================

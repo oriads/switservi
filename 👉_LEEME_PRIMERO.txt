@@ -1,0 +1,139 @@
+========================================================
+     👋 BIENVENIDO AL SISTEMA HELPDESK IBM i
+========================================================
+
+¡HOLA! Gracias por usar este sistema.
+
+No te preocupes si no sabes de tecnologia, este guia 
+te ayudara paso a paso.
+
+
+========================================================
+        🚀 PARA EMPEZAR (SOLO LA PRIMERA VEZ)
+========================================================
+
+HAZ DOBLE CLIC EN ESTE ARCHIVO:
+
+     CONFIGURAR_SISTEMA.bat
+
+Este archivo hara todo automaticamente:
+✅ Verificara que todo este instalado
+✅ Creara iconos en tu escritorio
+✅ Configurara el sistema
+✅ Te mostrara como usarlo
+
+SOLO ESO. Despues de eso, usar el sistema sera tan 
+facil como hacer doble clic en un icono.
+
+
+========================================================
+        📌 UNA VEZ CONFIGURADO (PARA SIEMPRE)
+========================================================
+
+EN TU ESCRITORIO VERAS ESTE ICONO:
+
+     🟢 INICIAR HelpDesk
+
+SOLO HAZ DOBLE CLIC AHI.
+
+El sistema:
+1. Se iniciara automaticamente
+2. Abrira tu navegador de internet
+3. Te mostrara una pantalla de bienvenida
+4. Haz clic en el boton verde grande
+5. ¡LISTO! Ya puedes usar el sistema
+
+
+========================================================
+        🛑 PARA CERRAR EL SISTEMA
+========================================================
+
+EN TU ESCRITORIO VERAS ESTE ICONO:
+
+     🔴 DETENER HelpDesk
+
+SOLO HAZ DOBLE CLIC AHI.
+
+IMPORTANTE:
+1. Primero cierra tu navegador
+2. Despues haz doble clic en "DETENER HelpDesk"
+3. Confirma que deseas cerrar
+
+
+========================================================
+        ❓ ¿NECESITAS AYUDA?
+========================================================
+
+EN TU ESCRITORIO TAMBIEN VERAS ESTE ICONO:
+
+     📄 INSTRUCCIONES HelpDesk
+
+Ese icono abre este mismo archivo con toda la 
+informacion detallada.
+
+
+========================================================
+        PROBLEMAS COMUNES
+========================================================
+
+P: "Dice que Docker no esta instalado"
+R: Necesitas que alguien instale Docker Desktop en tu 
+   computadora. Contacta al departamento de sistemas.
+
+P: "No veo los iconos en mi escritorio"
+R: Ejecuta el archivo CONFIGURAR_SISTEMA.bat nuevamente.
+
+P: "El sistema no abre"
+R: 
+   1. Espera 2-3 minutos (la primera vez tarda)
+   2. Si sigue sin abrir, ejecuta DETENER HelpDesk
+   3. Vuelve a ejecutar INICIAR HelpDesk
+
+P: "Me equivoco de algo"
+R: No te preocupes, casi no hay forma de dañar el 
+   sistema. Si algo sale mal, detiene y vuelve a 
+   iniciar.
+
+
+========================================================
+        📞 ¿MAS PROBLEMAS?
+========================================================
+
+Si tienes un problema que no esta aqui:
+
+1. Toma una foto o captura de pantalla del error
+2. Anota que estabas haciendo cuando ocurrio
+3. Contacta a quien te dio este sistema
+
+No intentes solucionar problemas tecnicos tu solo si 
+no te sientes comodo con la tecnologia.
+
+
+========================================================
+        RESUMEN RAPIDO (PARA IMPRIMIR)
+========================================================
+
+PARA INICIAR:
+1. Busca el icono verde en tu escritorio
+2. Haz doble clic
+3. Espera a que abra el navegador
+4. Haz clic en el boton verde grande
+5. Usa el sistema
+
+PARA CERRAR:
+1. Cierra el navegador
+2. Busca el icono rojo en tu escritorio  
+3. Haz doble clic
+4. Confirma que deseas cerrar
+
+¡ESO ES TODO!
+
+
+========================================================
+
+VERSION: 1.0.0
+FECHA: Abril 2024
+
+Si llegas a leer esto, ¡bienvenido al sistema! 😊
+
+========================================================

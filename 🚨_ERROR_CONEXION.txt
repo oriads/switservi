@@ -1,0 +1,109 @@
+========================================================
+     🚨 SOLUCIÓN AL ERROR: "localhost rechazó la conexión"
+========================================================
+
+¿POR QUÉ SALE ESTE ERROR?
+
+El error "localhost rechazó la conexión" significa que 
+el sistema NO está corriendo.
+
+Esto pasa porque:
+❌ Docker no está instalado
+❌ Docker no está corriendo
+❌ El sistema no se inició correctamente
+
+
+========================================================
+        SOLUCIÓN RÁPIDA (ELIGE UNA OPCIÓN)
+========================================================
+
+OPCIÓN 1: ✅ INSTALAR DOCKER (RECOMENDADO)
+         → Tendrás el sistema completo con todas las funciones
+
+OPCIÓN 2: ⚠️ MODO LIMITADO (SOLO INTERFAZ)
+         → Podrás ver la interfaz pero sin guardar datos
+         → Útil para demostrar cómo se ve
+
+
+========================================================
+        OPCIÓN 1: Instalar Docker (Recomendado)
+========================================================
+
+PASO 1: Descargar Docker
+1. Abre tu navegador
+2. Ve a: https://www.docker.com/products/docker-desktop
+3. Haz clic en "Download for Windows"
+4. Espera a que descargue
+
+PASO 2: Instalar Docker
+1. Abre el archivo descargado
+2. Sigue las instrucciones (Next, Next, Install)
+3. Espera a que termine
+4. Reinicia tu computadora
+
+PASO 3: Iniciar Docker
+1. Después de reiniciar, busca "Docker Desktop"
+2. Ábrelo
+3. Espera a que el icono se ponga VERDE (1-2 min)
+
+PASO 4: Iniciar el Sistema
+1. Ve a la carpeta del proyecto
+2. Ejecuta: INICIAR_HELPDESK.bat
+3. Espera 2-3 minutos (la primera vez)
+4. ¡Listo! El navegador se abrirá
+
+
+========================================================
+        OPCIÓN 2: Modo Limitado (Sin Docker)
+========================================================
+
+Si solo quieres VER cómo se ve la interfaz:
+
+1. Ve a la carpeta del proyecto
+2. Ejecuta: INICIAR_SIN_DOCKER.bat
+3. Espera 30-60 segundos
+4. El navegador se abrirá
+
+⚠️ IMPORTANTE:
+   - Podrás ver la interfaz
+   - NO podrás guardar cambios
+   - NO podrás subir archivos
+   - Es solo para demostración visual
+
+
+========================================================
+        VERIFICAR QUE FUNCIONE
+========================================================
+
+Después de seguir una de las opciones:
+
+1. Abre tu navegador
+2. Escribe: http://localhost:5173
+3. Presiona Enter
+
+¿Qué ves?
+
+✅ Si ves una pantalla de bienvenida con un botón verde:
+   → ¡TODO FUNCIONA!
+
+❌ Si sigue diciendo "rechazó la conexión":
+   → Revisa la solución de problemas
+   → Abre: ⚠️_SOLUCION_DE_PROBLEMAS.txt
+
+
+========================================================
+        NECESITAS MÁS AYUDA
+========================================================
+
+1. Lee: ⚠️_SOLUCION_DE_PROBLEMAS.txt
+2. Lee: 👉_LEEME_PRIMERO.txt
+3. Contacta al departamento de sistemas
+
+
+========================================================
+
+¿Cuál opción prefieres intentar?
+- Si tienes tiempo: OPCIÓN 1 (instalar Docker)
+- Si solo quieres ver: OPCIÓN 2 (modo limitado)
+
+========================================================

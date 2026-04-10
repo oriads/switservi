@@ -1,0 +1,145 @@
+========================================================
+        HELPDESK IBM i - GUIA PARA EL USUARIO
+========================================================
+
+¿QUE ES ESTE SISTEMA?
+
+Es un sistema para gestionar cambios, proyectos y 
+requerimientos del servidor IBM i (AS/400).
+
+Permite:
+- Crear y gestionar cambios
+- Subir archivos de evidencia
+- Ver trabajos programados
+- Consultar información
+
+
+========================================================
+        ¿COMO INICIAR EL SISTEMA?
+========================================================
+
+PASO 1: Buscar el icono "INICIAR_HELPDESK" en tu escritorio
+
+PASO 2: Hacer DOBLE CLIC sobre ese icono
+
+PASO 3: Esperar unos segundos (la primera vez puede 
+        tardar unos minutos)
+
+PASO 4: El sistema se abrira automaticamente en tu 
+        navegador de internet
+
+¡LISTO! Ya puedes usar el sistema.
+
+
+========================================================
+        ¿COMO USAR EL SISTEMA?
+========================================================
+
+Una vez que se abra el navegador veras una pantalla 
+de bienvenida con un boton verde grande.
+
+SOLO HAZ CLIC EN ESE BOTON VERDE y el sistema se 
+abrira automaticamente.
+
+
+DENTRO DEL SISTEMA:
+
+📊 DASHBOARD
+   - Ves un resumen de todos los cambios
+   - Puedes ver cuantos hay pendientes y completados
+
+📝 CONTROL DE CAMBIOS  
+   - Lista de todos los cambios registrados
+   - Puedes crear nuevos, editar o eliminar
+   - Puedes buscar y filtrar por diferentes criterios
+
+📎 EVIDENCIAS
+   - Sube archivos como Word, Excel, PDF, imagenes
+   - Cada cambio puede tener sus archivos de soporte
+
+🖥️ TRABAJOS IBM i
+   - Ves los trabajos programados en el servidor AS/400
+   - Puedes ver su estado y horario
+
+
+========================================================
+        ¿COMO CERRAR EL SISTEMA?
+========================================================
+
+IMPORTANTE: No solo cierres la ventana negra de 
+comandos, usa el metodo correcto:
+
+PASO 1: Cierra tu navegador (Chrome, Edge, Firefox)
+
+PASO 2: Busca en tu escritorio el icono 
+        "DETENER_SISTEMA"
+
+PASO 3: Haz doble clic y confirma que deseas detener
+
+¡LISTO! El sistema se cerro correctamente.
+
+
+========================================================
+        PROBLEMAS COMUNES
+========================================================
+
+PROBLEMA: "No se encuentra el archivo .bat"
+SOLUCION:  Busca en la carpeta:
+           C:\Users\mpas1\VISUAL CODE\switservi\helpdesk-ibmi
+           
+           Ahi estan los archivos:
+           - INICIAR_HELPDESK.bat (para iniciar)
+           - DETENER_SISTEMA.bat (para detener)
+
+
+PROBLEMA: "Docker no esta instalado"
+SOLUCION: Contacta al departamento de sistemas para 
+          que instalen Docker Desktop
+
+
+PROBLEMA: "El sistema no abre"
+SOLUCION: 
+1. Espera 2-3 minutos (la primera vez tarda)
+2. Si no abre, cierra la ventana negra
+3. Ejecuta DETENER_SISTEMA.bat
+4. Vuelve a ejecutar INICIAR_HELPDESK.bat
+
+
+PROBLEMA: "Error de puertos en uso"
+SOLUCION: 
+1. Deten el sistema con DETENER_SISTEMA.bat
+2. Espera 10 segundos
+3. Vuelve a iniciar con INICIAR_HELPDESK.bat
+
+
+========================================================
+        DIRECCIONES DE ACCESO
+========================================================
+
+Si el navegador no abre automaticamente, puedes escribir 
+estas direcciones manualmente:
+
+SISTEMA PRINCIPAL:
+http://localhost:5173
+
+O si accedes desde otra computadora en la misma red:
+http://192.168.1.XXX:5173
+(la IP exacta te la da el sistema al iniciar)
+
+
+========================================================
+        ¿NECESITAS MAS AYUDA?
+========================================================
+
+Si tienes algun problema que no esta en esta lista:
+
+1. Toma una captura de pantalla del error
+2. Anota que estabas haciendo cuando ocurrio
+3. Contacta al departamento de sistemas
+
+--------------------------------------------------------
+
+VERSION: 1.0.0
+FECHA: Abril 2024
+
+========================================================

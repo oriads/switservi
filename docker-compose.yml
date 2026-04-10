@@ -1,0 +1,171 @@
+version: '3.8'
+
+# ============================================
+# HelpDesk IBM i - Docker Compose
+# Orquestación completa de servicios
+# ============================================
+
+services:
+  # ============================================
+  # PostgreSQL - Base de datos principal
+  # ============================================
+  postgres:
+    image: postgres:15-alpine
+    container_name: helpdesk-postgres
+    restart: unless-stopped
+    environment:
+      POSTGRES_DB: helpdesk_ibmi
+      POSTGRES_USER: helpdesk
+      POSTGRES_PASSWORD: ${DB_PASSWORD:-helpdesk_pass}
+      PGDATA: /var/lib/postgresql/data/pgdata
+    ports:
+      - "${DB_PORT:-5432}:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+      - ./database/init:/docker-entrypoint-initdb.d
+    networks:
+      - helpdesk-network
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U helpdesk -d helpdesk_ibmi"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+      start_period: 10s
+
+  # ============================================
+  # pgAdmin - Administración web de PostgreSQL
+  # ============================================
+  pgadmin:
+    image: dpage/pgadmin4:latest
+    container_name: helpdesk-pgadmin
+    restart: unless-stopped
+    environment:
+      PGADMIN_DEFAULT_EMAIL: ${PGADMIN_EMAIL:-admin@helpdesk.com}
+      PGADMIN_DEFAULT_PASSWORD: ${PGADMIN_PASSWORD:-admin_pass}
+      PGADMIN_CONFIG_SERVER_MODE: 'False'
+    ports:
+      - "${PGADMIN_PORT:-5050}:80"
+    volumes:
+      - pgadmin_data:/var/lib/pgadmin
+    depends_on:
+      - postgres
+    networks:
+      - helpdesk-network
+
+  # ============================================
+  # Backend Go - Servicio ODBC IBM i
+  # ============================================
+  backend-go:
+    build:
+      context: ./backend-go
+      dockerfile: Dockerfile
+    container_name: helpdesk-backend-go
+    restart: unless-stopped
+    environment:
+      GO_SERVER_PORT: 8080
+      GO_SERVER_HOST: 0.0.0.0
+      IBMI_HOST: ${IBMI_HOST:-192.168.1.100}
+      IBMI_PORT: ${IBMI_PORT:-446}
+      IBMI_USER: ${IBMI_USER:-QSECOFR}
+      IBMI_PASSWORD: ${IBMI_PASSWORD}
+      IBMI_LIBRARY: ${IBMI_LIBRARY:-QGPL}
+      DB_HOST: postgres
+      DB_PORT: 5432
+      DB_USER: helpdesk
+      DB_PASSWORD: ${DB_PASSWORD:-helpdesk_pass}
+      DB_NAME: helpdesk_ibmi
+    ports:
+      - "${GO_BACKEND_PORT:-8080}:8080"
+    volumes:
+      - ./backend-go:/app (development only)
+    depends_on:
+      postgres:
+        condition: service_healthy
+    networks:
+      - helpdesk-network
+    # Nota: Para producción, necesita el driver ODBC de IBM i
+    # Ver documentación en README.md
+
+  # ============================================
+  # Frontend React - Interfaz web
+  # ============================================
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    container_name: helpdesk-frontend
+    restart: unless-stopped
+    environment:
+      VITE_API_URL: ${VITE_API_URL:-http://localhost:2050/api}
+    ports:
+      - "${FRONTEND_PORT:-5173}:80"
+    depends_on:
+      - api-node
+    networks:
+      - helpdesk-network
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+
+  # ============================================
+  # API Node.js - Servicio principal
+  # ============================================
+  api-node:
+    build:
+      context: ./api-node
+      dockerfile: Dockerfile
+    container_name: helpdesk-api-node
+    restart: unless-stopped
+    environment:
+      NODE_ENV: ${NODE_ENV:-production}
+      NODE_PORT: 2050
+      NODE_HOST: 0.0.0.0
+      DB_HOST: postgres
+      DB_PORT: 5432
+      DB_USER: helpdesk
+      DB_PASSWORD: ${DB_PASSWORD:-helpdesk_pass}
+      DB_NAME: helpdesk_ibmi
+      GO_BACKEND_URL: http://backend-go:8080
+      EVIDENCIAS_DIR: /app/evidencias
+      MAX_FILE_SIZE: ${MAX_FILE_SIZE:-10485760}
+      CORS_ORIGIN: ${CORS_ORIGIN:-*}
+    ports:
+      - "${NODE_PORT:-2050}:2050"
+    volumes:
+      - evidencias_data:/app/evidencias
+      - profile_photos_data:/app/profile-photos
+      - ./api-node/src:/app/src (development only)
+    depends_on:
+      postgres:
+        condition: service_healthy
+      backend-go:
+        condition: service_started
+    networks:
+      - helpdesk-network
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:2050/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+
+# ============================================
+# Volúmenes persistentes
+# ============================================
+volumes:
+  postgres_data:
+    driver: local
+  pgadmin_data:
+    driver: local
+  evidencias_data:
+    driver: local
+  profile_photos_data:
+    driver: local
+
+# ============================================
+# Red interna
+# ============================================
+networks:
+  helpdesk-network:
+    driver: bridge

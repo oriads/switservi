@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HelpDesk IBM i - Inicio</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+        .container {
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            max-width: 800px;
+            width: 100%;
+            overflow: hidden;
+        }
+        .header {
+            background: linear-gradient(135deg, #1e40af 0%, #3b82f6 100%);
+            color: white;
+            padding: 40px;
+            text-align: center;
+        }
+        .header h1 { font-size: 2.5em; margin-bottom: 10px; }
+        .header p { font-size: 1.2em; opacity: 0.9; }
+        .content { padding: 40px; }
+        .error-box {
+            background: linear-gradient(135deg, #ef4444 0%, #dc2626 100%);
+            color: white;
+            padding: 30px;
+            border-radius: 15px;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        .error-box h2 { font-size: 1.5em; margin-bottom: 15px; }
+        .solution-box {
+            background: #f0fdf4;
+            border-left: 4px solid #10b981;
+            padding: 30px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+        }
+        .solution-box h3 {
+            color: #065f46;
+            font-size: 1.3em;
+            margin-bottom: 15px;
+        }
+        .solution-box p {
+            color: #047857;
+            line-height: 1.6;
+            margin-bottom: 10px;
+        }
+        .steps {
+            list-style: none;
+            counter-reset: step;
+        }
+        .steps li {
+            counter-increment: step;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: flex-start;
+            gap: 15px;
+        }
+        .steps li::before {
+            content: counter(step);
+            background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+            color: white;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            flex-shrink: 0;
+        }
+        .option {
+            background: white;
+            border: 2px solid #e2e8f0;
+            padding: 20px;
+            border-radius: 10px;
+            margin: 15px 0;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        .option:hover {
+            border-color: #3b82f6;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(59,130,246,0.1);
+        }
+        .option h4 {
+            color: #1e293b;
+            font-size: 1.2em;
+            margin-bottom: 8px;
+        }
+        .option p {
+            color: #64748b;
+            line-height: 1.5;
+        }
+        .badge {
+            display: inline-block;
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 0.85em;
+            font-weight: 600;
+            margin-top: 10px;
+        }
+        .badge-recommended {
+            background: #10b981;
+            color: white;
+        }
+        .badge-quick {
+            background: #f59e0b;
+            color: white;
+        }
+        .warning {
+            background: #fef3c7;
+            border-left: 4px solid #f59e0b;
+            padding: 20px;
+            border-radius: 10px;
+            margin-top: 20px;
+        }
+        .warning strong {
+            color: #92400e;
+            display: block;
+            margin-bottom: 8px;
+        }
+        .warning p {
+            color: #78350f;
+            line-height: 1.6;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🖥️ HelpDesk IBM i</h1>
+            <p>Sistema de Gestión de Cambios</p>
+        </div>
+
+        <div class="content">
+            <div class="error-box">
+                <h2>⚠️ Error de Conexión Detectado</h2>
+                <p>El sistema no está corriendo actualmente</p>
+            </div>
+
+            <div class="solution-box">
+                <h3>✅ ¡No te preocupes! Aquí tienes soluciones:</h3>
+                
+                <div class="option" onclick="alert('Sigue las instrucciones abajo')">
+                    <h4>🥇 OPCIÓN 1: Instalar Docker (Recomendado)</h4>
+                    <p>Tendrás el sistema completo con TODAS las funciones</p>
+                    <span class="badge badge-recommended">✅ Recomendado</span>
+                </div>
+
+                <div class="option" onclick="window.open('http://localhost:5173', '_blank')">
+                    <h4>🥈 OPCIÓN 2: Modo Demo (Sin Docker)</h4>
+                    <p>Solo para ver cómo se ve la interfaz (sin guardar datos)</p>
+                    <span class="badge badge-quick">⚡ Rápido</span>
+                </div>
+            </div>
+
+            <div class="solution-box">
+                <h3>📋 Instrucciones - OPCIÓN 1 (Recomendada):</h3>
+                <ol class="steps">
+                    <li>
+                        <div>
+                            <strong>Descarga Docker Desktop</strong>
+                            <p>Ve a: <a href="https://www.docker.com/products/docker-desktop" target="_blank">docker.com/products/docker-desktop</a></p>
+                        </div>
+                    </li>
+                    <li>
+                        <div>
+                            <strong>Instala Docker</strong>
+                            <p>Sigue las instrucciones (Next, Next, Install)</p>
+                        </div>
+                    </li>
+                    <li>
+                        <div>
+                            <strong>Reinicia tu computadora</strong>
+                            <p>Esto es importante para que Docker funcione</p>
+                        </div>
+                    </li>
+                    <li>
+                        <div>
+                            <strong>Abre Docker Desktop</strong>
+                            <p>Espera a que el icono se ponga VERDE (1-2 minutos)</p>
+                        </div>
+                    </li>
+                    <li>
+                        <div>
+                            <strong>Inicia el sistema</strong>
+                            <p>Ejecuta el archivo: <code>INICIAR_HELPDESK.bat</code></p>
+                        </div>
+                    </li>
+                    <li>
+                        <div>
+                            <strong>¡Listo!</strong>
+                            <p>El navegador se abrirá automáticamente</p>
+                        </div>
+                    </li>
+                </ol>
+            </div>
+
+            <div class="solution-box">
+                <h3>⚡ Instrucciones - OPCIÓN 2 (Modo Demo):</h3>
+                <ol class="steps">
+                    <li>
+                        <div>
+                            <strong>Verifica que Node.js esté instalado</strong>
+                            <p>Abre CMD y escribe: <code>node --version</code></p>
+                        </div>
+                    </li>
+                    <li>
+                        <div>
+                            <strong>Ejecuta el script</strong>
+                            <p>Haz doble clic en: <code>INICIAR_SIN_DOCKER.bat</code></p>
+                        </div>
+                    </li>
+                    <li>
+                        <div>
+                            <strong>Espera 30-60 segundos</strong>
+                            <p>El navegador se abrirá automáticamente</p>
+                        </div>
+                    </li>
+                </ol>
+                <div class="warning">
+                    <strong>⚠️ Importante - Modo Demo:</strong>
+                    <p>
+                        Podrás VER la interfaz, pero NO podrás guardar cambios ni usar 
+                        funciones reales. Es solo para demostración visual.
+                    </p>
+                </div>
+            </div>
+
+            <div class="warning">
+                <strong>📞 ¿Necesitas más ayuda?</strong>
+                <p>
+                    Abre el archivo: <strong>🚨_ERROR_CONEXION.txt</strong> 
+                    o <strong>⚠️_SOLUCION_DE_PROBLEMAS.txt</strong>
+                </p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
